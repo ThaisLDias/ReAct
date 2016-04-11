@@ -9,23 +9,15 @@ public class EmotionsChanges : MonoBehaviour {
 	public Sprite secondImage;
 	GameObject otherScript; 
 
-	void Start()
-	{
+	void Start(){
 		myImage = GetComponent<Image> ();
 	}
 
-	void Update()
-	{
+	void Update(){
 		LoadSprite ();
 	}
 
-
-
-
-	void LoadSprite()
-	{
-
-		
+	void LoadSprite(){
 		otherScript = GameObject.Find ("workButton");
 		buttons buttonScript = otherScript.GetComponent<buttons>(); 
 
@@ -33,7 +25,5 @@ public class EmotionsChanges : MonoBehaviour {
 			myImage.sprite = secondImage;
 		} else
 			myImage.sprite = firstImage;
-	
-	
 	}
 }

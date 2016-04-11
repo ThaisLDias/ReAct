@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{903FAEFB-1EC6-B9B3-7641-2030585A33FD}</ProjectGuid>
+    <ProjectGuid>{2A443957-6269-7D80-D625-2BF94AE82C84}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\Meta.cs" />
      <Compile Include="Assets\Scripts\buttons.cs" />
      <Compile Include="Assets\Scripts\clockTime.cs" />
+     <Compile Include="Assets\Scripts\stressBar.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

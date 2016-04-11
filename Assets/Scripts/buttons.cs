@@ -19,6 +19,7 @@ public class buttons : MonoBehaviour {
 	private Vector2 Oldpos; 
 	private bool isMoving;
 
+	GameObject barScript;
 
 	void Start () {
 		Oldpos = this.transform.position;
@@ -29,18 +30,14 @@ public class buttons : MonoBehaviour {
 	}
 
 	void Update () {
-
 		if (isColliding == true) {
 			Stress += 0.1f;
 			Debug.Log ("Stress" + Stress);
 			meta += 0.1f;
 			Debug.Log ("Meta" + meta);
 		}
-
-	
 	}
-
-
+		
 	void OnMouseDrag() {
 		if (!isMoving) {
 			Vector2 position = Camera.main.ScreenToWorldPoint (Input.mousePosition);
@@ -49,11 +46,16 @@ public class buttons : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D colisor) {
+
+		barScript = GameObject.Find ("Slider");
+		stressBar declineScript = barScript.GetComponent<stressBar>(); 
+
 		if (colisor.gameObject.tag == "blackHole") {
 			isMoving = true;
 			isColliding = true;
 			this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 				new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x, colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+			declineScript.Decline ();
 			Debug.Log ("Entrou!");
 			StartCoroutine (time());
 		} 
@@ -72,7 +74,4 @@ public class buttons : MonoBehaviour {
 		transform.position = Vector2.Lerp(Oldpos, transform.position, Time.deltaTime);
         //transform.position = Vector2.SmoothDamp(transform.position, Oldpos, ref velocity, 2f);  
     }
-
-
-
 }
