@@ -20,8 +20,8 @@ public class EmotionsChanges : MonoBehaviour {
 	}
 
 	void LoadSprite(){
-		otherScript = GameObject.Find ("workButton");
-		stressButtons buttonScript = otherScript.GetComponent<stressButtons>(); 
+		otherScript = GameObject.Find ("BlackHole");
+		BlackHole buttonScript = otherScript.GetComponent<BlackHole>(); 
 
 		if (buttonScript.Stress >= 20 && buttonScript.Stress < 50) {
 			myImage.sprite = secondImage;

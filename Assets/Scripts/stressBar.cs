@@ -13,8 +13,8 @@ public class stressBar : MonoBehaviour {
 	}
 		
 	public void Decline()  {
-		otherS = GameObject.Find ("workButton");
-		stressButtons buttonScript = otherS.GetComponent<stressButtons>(); 
+		otherS = GameObject.Find ("BlackHole");
+		BlackHole buttonScript = otherS.GetComponent<BlackHole>(); 
 		stressB.value = buttonScript.Stress;
 	}
 }

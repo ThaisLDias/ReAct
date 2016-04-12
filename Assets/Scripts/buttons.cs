@@ -7,19 +7,12 @@ public class buttons : MonoBehaviour {
 	public GameObject buttonFun;
 	public GameObject buttonSleep;
 
-
 	private Vector2 Oldpos;  
 	private bool isMoving;
-
-
 
 	void Start () {
 		Oldpos = this.transform.position;
 		isMoving = false;
-	}
-
-	void Update () { 
-
 	}
 		
 	void OnMouseDrag() {
