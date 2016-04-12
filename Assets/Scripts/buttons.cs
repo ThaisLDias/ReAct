@@ -4,38 +4,33 @@ using System.Collections;
 
 public class buttons : MonoBehaviour {
 
-	public GameObject buttonWork;
-	public GameObject buttonStudy;
 	public GameObject buttonFun;
 	public GameObject buttonSleep;
 
-	public GameObject stressBar; 
-	public float Stress = 0;
-	public bool isColliding; 
-	public float meta;
+	//private bool colGoal;
+	//public float meta;
 
-
-	private Vector2 velocity = Vector2.zero;
 	private Vector2 Oldpos; 
 	private bool isMoving;
 
-	GameObject barScript;
 
 	void Start () {
 		Oldpos = this.transform.position;
 		isMoving = false;
-		isColliding = false;
-		stressBar.transform.localScale += new Vector3 (Stress,0,0);
-	
+		//colGoal = false;
 	}
 
 	void Update () {
-		if (isColliding == true) {
-			Stress += 0.1f;
-			Debug.Log ("Stress" + Stress);
+		/*if (colGoal == true) {
 			meta += 0.1f;
-			Debug.Log ("Meta" + meta);
 		}
+
+		if (meta >= 100) {
+			Debug.Log("Ganhou miseravi");
+		}*/
+
+        
+        
 	}
 		
 	void OnMouseDrag() {
@@ -47,16 +42,14 @@ public class buttons : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colisor) {
 
-		barScript = GameObject.Find ("Slider");
-		stressBar declineScript = barScript.GetComponent<stressBar>(); 
+		//barScript = GameObject.Find ("Slider");
+		//stressBar declineScript = barScript.GetComponent<stressBar>(); 
 
 		if (colisor.gameObject.tag == "blackHole") {
 			isMoving = true;
-			isColliding = true;
+			//colGoal = true;
 			this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
-				new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x, colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-			declineScript.Decline ();
-			Debug.Log ("Entrou!");
+			new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x, colisor.GetComponent<RectTransform> ().anchoredPosition.y);
 			StartCoroutine (time());
 		} 
 	}
@@ -64,14 +57,16 @@ public class buttons : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D colisor) {
 		if (colisor.gameObject.tag == "blackHole") {
 			isMoving = false;
-			isColliding = false;
+			//colGoal = false;
 		}
 	}
 
 	IEnumerator time() {
+       // meta = PlayerPrefs.GetFloat("meta");
 		yield return new WaitForSeconds(5f);
-		Debug.Log ("Saiu!");
 		transform.position = Vector2.Lerp(Oldpos, transform.position, Time.deltaTime);
-        //transform.position = Vector2.SmoothDamp(transform.position, Oldpos, ref velocity, 2f);  
+
+        //PlayerPrefs.SetFloat("meta", meta);
     }
+
 }

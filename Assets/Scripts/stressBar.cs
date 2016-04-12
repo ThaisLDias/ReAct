@@ -14,7 +14,7 @@ public class stressBar : MonoBehaviour {
 		
 	public void Decline()  {
 		otherS = GameObject.Find ("workButton");
-		buttons buttonScript = otherS.GetComponent<buttons>(); 
+		stressButtons buttonScript = otherS.GetComponent<stressButtons>(); 
 		stressB.value = buttonScript.Stress;
 	}
 }
