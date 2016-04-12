@@ -5,56 +5,47 @@ public class BlackHole : MonoBehaviour {
 
 	public float meta;
 	private bool metaCol;
-
-
+	private bool metaDecline;
 
 	void Start () {
 		metaCol = false;
+		metaDecline = false;
+		}
 
-	}
-
-	void Update() 
-	{
-		if (metaCol == true) {
+	void Update() {
+		if (metaCol == true && meta < 100) {
 			meta += 0.1f;
+		}
+
+		if (metaDecline == true && meta > 0) {
+			meta -= 0.1f;
 		}
 
 		if (meta >= 100) {
 			Debug.Log("Ganhou miseravi");
 		}
-
 	}
-	
-	// Update is called once per frame
-	void OnTriggerEnter2D (Collider2D col) {
-       /* switch (col.name)
-        {
-            case "workButton":
-			meta += 0.1f;
-                break;*/
-           /* case "sleepButton":
-                break;*/
-           /* case "studyButton":
-			meta += 0.1f;
-                break;*
-            /*case "funButton":
-                break;*/
-       // }
 
-		if (col.gameObject.tag == "StudyButton" || col.gameObject.tag == "WorkButton") {
+	void OnTriggerEnter2D (Collider2D col) {
+		if (col.gameObject.name == "studyButton" || col.gameObject.name == "workButton") {
 			metaCol = true;
 		}
+		if (col.gameObject.name == "funButton" || col.gameObject.name == "sleepButton") {
+			metaDecline = true;
+		}
 
-		
-	
+		/*if (col.gameObject.tag == "buttons") {
+			transform.position = Vector2.Lerp(Oldpos, transform.position, Time.deltaTime);
+		}*/
 	}
 
 	void OnTriggerExit2D(Collider2D col) {
-		if (col.gameObject.tag == "StudyButton" || col.gameObject.tag == "WorkButton") {
+		if (col.gameObject.name == "studyButton" || col.gameObject.name == "workButton") {
 			metaCol = false;
 		}
+		if (col.gameObject.name == "FunButton" || col.gameObject.name == "SleepButton") {
+			metaDecline = false;
+		}
 	}
-
-
-	}
+}
 
