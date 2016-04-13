@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Meta.cs" />
      <Compile Include="Assets\Scripts\buttons.cs" />
      <Compile Include="Assets\Scripts\clockTime.cs" />
+     <Compile Include="Assets\Scripts\miniGoals.cs" />
      <Compile Include="Assets\Scripts\stressBar.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
