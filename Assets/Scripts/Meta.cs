@@ -6,9 +6,7 @@ public class Meta : MonoBehaviour {
 	
 	GameObject btScript; 
 	public Text goalText;
-	
-	
-	
+
 	public void OnGUI() {
 		btScript = GameObject.Find ("BlackHole");
 		BlackHole blackScript = btScript.GetComponent<BlackHole>(); 

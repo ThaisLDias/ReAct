@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2A443957-6269-7D80-D625-2BF94AE82C84}</ProjectGuid>
+    <ProjectGuid>{DE998F0E-F2E1-0E6D-32B0-634EF97FE8D3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -47,12 +47,15 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BlackHole.cs" />
      <Compile Include="Assets\Scripts\EmotionsChanges.cs" />
+     <Compile Include="Assets\Scripts\Events.cs" />
+     <Compile Include="Assets\Scripts\LevelManagment.cs" />
      <Compile Include="Assets\Scripts\Meta.cs" />
+     <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\buttons.cs" />
      <Compile Include="Assets\Scripts\clockTime.cs" />
      <Compile Include="Assets\Scripts\miniGoals.cs" />
+     <Compile Include="Assets\Scripts\popUp.cs" />
      <Compile Include="Assets\Scripts\stressBar.cs" />
-     <Compile Include="Assets\popUp.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

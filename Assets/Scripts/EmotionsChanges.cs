@@ -34,7 +34,9 @@ public class EmotionsChanges : MonoBehaviour {
 		{
 			myImage.sprite = fourthImage;
 		}
-		else
+		else if(buttonScript.Stress >= 0 && buttonScript.Stress <= 20)
+		{
 			myImage.sprite = firstImage;
+		}
 	}
 }
