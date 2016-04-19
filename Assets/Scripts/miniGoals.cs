@@ -1,27 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class miniGoals : MonoBehaviour {
 
-	string[] littleGoals = new string[] {"Go to Work"+"<br>", "Study" +"<br>", "Clean my room" + "<br>", "Go to school" + "<br>", "Sleep" + "<br>"};
+	public List<string> littleGoals = new List<string> ();
+	public List<GameObject> btns = new List<GameObject>();
 	public Text miniG; 
-	string lg;
+	public string lg;
+	public List<int> gs = new List<int>() ;
 	GameObject timeGoals;
 	
 	void Start () {
+		miniG = this.gameObject.GetComponent<Text>();
 		for (int i = 0; i < 3; i++) {
-			lg += littleGoals [Random.Range (0, littleGoals.Length)];
+
+			int rdm = Random.Range (0, littleGoals.Count);
+
+			if (i == 0)
+				gs.Add (rdm);
+			else if (rdm != gs [i - 1])
+				gs.Add (rdm);
+			else 
+				i-= 1;
+
+			lg += littleGoals [gs [i]];
+
 		}
+		Debug.Log (gs.Count);	
 	}
+
 
 	void Update() {
 		timeGoals = GameObject.Find ("time");
 		clockTime timeL = timeGoals.GetComponent<clockTime>();
-	} 
+
+	}
+	 
 
 	public void OnGUI() {
-		miniG = gameObject.GetComponent<Text>();
+		if (lg == "") {
+			for (int i = 0; i < gs.Count; i++) {
+				lg += littleGoals [gs [i]];
+			}
+		}
+		if (gs.Count == 0) {
+			lg = "DONE!";
+		}
+
 		miniG.text = lg.Replace("<br>", "\n");
 	} 
 }

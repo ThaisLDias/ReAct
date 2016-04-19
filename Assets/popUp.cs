@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/*
 public class popUp : MonoBehaviour {
 	
 	public GameObject panel; 
@@ -32,4 +32,4 @@ public class popUp : MonoBehaviour {
 		panel.SetActive (false);
 		setActive = false;
 	}
-}
+}*/

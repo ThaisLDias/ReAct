@@ -37,12 +37,10 @@ public class Pause : MonoBehaviour {
 	}
 
 
-	public void OutPause(){
-		
-	}
-
 	public void GoMenu(){
 		SceneManager.LoadScene ("Menu");
+			Time.timeScale = 1;
+
 	}
 
 

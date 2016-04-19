@@ -47,7 +47,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BlackHole.cs" />
      <Compile Include="Assets\Scripts\EmotionsChanges.cs" />
-     <Compile Include="Assets\Scripts\Events.cs" />
      <Compile Include="Assets\Scripts\LevelManagment.cs" />
      <Compile Include="Assets\Scripts\Meta.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
@@ -56,6 +55,8 @@
      <Compile Include="Assets\Scripts\miniGoals.cs" />
      <Compile Include="Assets\Scripts\popUp.cs" />
      <Compile Include="Assets\Scripts\stressBar.cs" />
+     <Compile Include="Assets\popUp.cs" />
+     <Compile Include="Assets\taskWindow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

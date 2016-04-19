@@ -10,7 +10,11 @@ public class buttons : MonoBehaviour {
 	private Vector2 Oldpos;  
 	private bool isMoving;
 	int h;
-	public Events tasks;
+    public string textGoal;
+    public int startTime;
+    public int endTime;
+    public bool started;
+    public bool done;
 
 
 	void Start () {
@@ -31,64 +35,62 @@ public class buttons : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D colisor) 
+	void OnTriggerEnter2D(Collider2D colisor)
 	{
 		if (colisor.gameObject.tag == "blackHole") {
 			if (this.gameObject.name == "workButton") {
-				if(h>= 13 && h < 18)
-				{
+				if (this.startTime <= h && this.endTime >= h) {
+					this.done = true;
 					isMoving = true;
 					this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 						new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-							         colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-					StartCoroutine (time ());
-				}
-				else
-				{
+						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+					StartCoroutine (time (5f));
+				} else {
+					this.started = false;
+					StartCoroutine (time(1f));
 					Debug.Log ("Nao ta na hora, viado");
 				}
 			}
 
-			/*if (this.gameObject.name == "sleepButton"){
-				if(h>= 13 && h < 18){}
-				else{
-					isMoving = true;
-					this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
-						new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-						             colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-					StartCoroutine (time ());
-				}
-			}*/
-			/*if(this.gameObject.name == "studyButton"){
-				if(h>= 13 && h < 18){}
-				else{
-					isMoving = true;
-					this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
-						new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-						             colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-					StartCoroutine (time ());
-				}
-		}*/
-			else
-			{
+			if (this.gameObject.name == "sleepButton") {
+				this.done = true;
 				isMoving = true;
 				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-					             colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-				StartCoroutine (time ());
+					colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+				StartCoroutine (time (5f));
+			
+			}
+			if (this.gameObject.name == "studyButton") {
+				this.done = true;
+				isMoving = true;
+				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
+					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
+					colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+				StartCoroutine (time (5f));
+
+			}
+			if (this.gameObject.name == "funButton") {	
+				this.done = true;
+				isMoving = true;
+				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
+					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
+						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+				StartCoroutine (time (5f));
+
 			}
 		}
 	}
-
 	void OnTriggerExit2D(Collider2D colisor) {
 		if (colisor.gameObject.tag == "blackHole") {
 			isMoving = false;
 		}
 	}
 
-	IEnumerator time() {
-		yield return new WaitForSeconds(5f);
-		transform.position = Vector2.Lerp(Oldpos, transform.position, Time.deltaTime);
+	IEnumerator time(float t) {
+		yield return new WaitForSeconds(t);
+		this.transform.position = Vector2.Lerp(Oldpos, transform.position, Time.deltaTime);
     }
 
 }
