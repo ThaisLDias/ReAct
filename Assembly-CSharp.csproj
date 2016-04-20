@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DE998F0E-F2E1-0E6D-32B0-634EF97FE8D3}</ProjectGuid>
+    <ProjectGuid>{2A443957-6269-7D80-D625-2BF94AE82C84}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,8 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ButtonsCheck.cs" />
+     <Compile Include="Assets\Quiz.cs" />
      <Compile Include="Assets\Scripts\BlackHole.cs" />
      <Compile Include="Assets\Scripts\EmotionsChanges.cs" />
+     <Compile Include="Assets\Scripts\Events.cs" />
      <Compile Include="Assets\Scripts\LevelManagment.cs" />
      <Compile Include="Assets\Scripts\Meta.cs" />
      <Compile Include="Assets\Scripts\Pause.cs" />
@@ -55,8 +58,8 @@
      <Compile Include="Assets\Scripts\miniGoals.cs" />
      <Compile Include="Assets\Scripts\popUp.cs" />
      <Compile Include="Assets\Scripts\stressBar.cs" />
+     <Compile Include="Assets\Scripts\taskWindow.cs" />
      <Compile Include="Assets\popUp.cs" />
-     <Compile Include="Assets\taskWindow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

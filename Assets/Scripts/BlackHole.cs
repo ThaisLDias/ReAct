@@ -8,6 +8,11 @@ public class BlackHole : MonoBehaviour {
 	public float meta;
 	public bool growing;
 
+	public bool bW;
+	public bool bS;
+	public bool bD;
+	public bool bSp;
+
 	
 	
 
@@ -24,6 +29,10 @@ public class BlackHole : MonoBehaviour {
 	{
 		growing = false;	
 		declining = false;
+		bW = false;
+		bS = false;
+		bD = false;
+		bSp = false;
         
 	}
 
@@ -31,10 +40,16 @@ public class BlackHole : MonoBehaviour {
 
 		h = FindObjectOfType<clockTime> ().hours;
 
-		if (growing == true && meta < 100) {
-			meta += 0.1f;
-			Stress += 0.1f;
+		if (growing == true && meta < 100 && bS == true) {
+			meta += 0.09f;
+			Stress += 0.180f;
 		}
+
+		if (growing == true && meta < 100 && bW == true) {
+			meta += 0.045f;
+			Stress += 0.09f;
+		}
+
 		if (declining == true && Stress > 0) {
 			Stress -= 0.1f;
 		}
@@ -44,8 +59,7 @@ public class BlackHole : MonoBehaviour {
 		if (meta >= 100) {
 			Debug.Log("Ganhou miseravi");
 		}
-		Debug.Log ("meta: " + meta.ToString ());
-		
+
 
 
 	}
@@ -61,11 +75,13 @@ public class BlackHole : MonoBehaviour {
 		if (col.gameObject.name == "studyButton") {
 			growing = true;
 			declineScript.Decline ();
+			bS = true;
 		}
 		if (col.gameObject.name == "workButton") {
-			if (col.GetComponent<buttons> ().started) {
+			if (col.GetComponent<buttons> ().started == true) {
 				growing = true;
 				declineScript.Decline ();
+				bW = true;
 			}		
 		}
 
@@ -80,15 +96,16 @@ public class BlackHole : MonoBehaviour {
 			objetivo.lg = "";
 			if (col.gameObject.GetComponent<buttons> ().textGoal == objetivo.littleGoals [objetivo.gs [i]]) {
 				
-				Debug.Log ("Entrou no if na tentativa nº: " + (i).ToString ());
+				
+					Debug.Log ("Entrou no if na tentativa nº: " + (i).ToString ());
 
-				objetivo.lg.Replace (objetivo.littleGoals [objetivo.gs [i]], "Done");
-				objetivo.littleGoals.Remove (objetivo.littleGoals [objetivo.gs [i]]);
-				objetivo.gs.Remove (objetivo.gs [i]);
+					objetivo.lg.Replace (objetivo.littleGoals [objetivo.gs [i]], "Done");
+					objetivo.littleGoals.Remove (objetivo.littleGoals [objetivo.gs [i]]);
+					objetivo.gs.Remove (objetivo.gs [i]);
 				 
-			} else
-				Debug.Log ("A tentativa nº " + (i).ToString () + " não entrou no if");
-
+				} else
+					Debug.Log ("A tentativa nº " + (i).ToString () + " não entrou no if");
+			
 
 		}
 	}
@@ -97,6 +114,8 @@ public class BlackHole : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D col) {
 		if (col.gameObject.name == "studyButton" || col.gameObject.name == "workButton") {
 			growing = false;
+			bS = false;
+			bW = false;
 		}
 		if (col.gameObject.name == "funButton" || col.gameObject.name == "sleepButton") {
 			declining = false;

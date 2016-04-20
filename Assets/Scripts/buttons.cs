@@ -26,6 +26,8 @@ public class buttons : MonoBehaviour {
 	void FixedUpdate()
 	{
 		h = FindObjectOfType<clockTime>().hours;
+
+
 	}
 
 	void OnMouseDrag() {
@@ -42,16 +44,19 @@ public class buttons : MonoBehaviour {
 				if (this.startTime <= h && this.endTime >= h) {
 					this.done = true;
 					isMoving = true;
+					this.started = true;
 					this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 						new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
 						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
 					StartCoroutine (time (5f));
 				} else {
 					this.started = false;
-					StartCoroutine (time(1f));
+					//StartCoroutine (time(1f));
+					isMoving = false;
 					Debug.Log ("Nao ta na hora, viado");
 				}
 			}
+
 
 			if (this.gameObject.name == "sleepButton") {
 				this.done = true;
@@ -59,7 +64,7 @@ public class buttons : MonoBehaviour {
 				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
 					colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-				StartCoroutine (time (5f));
+				StartCoroutine (time (2f));
 			
 			}
 			if (this.gameObject.name == "studyButton") {
@@ -68,7 +73,7 @@ public class buttons : MonoBehaviour {
 				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
 					colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-				StartCoroutine (time (5f));
+				StartCoroutine (time (2f));
 
 			}
 			if (this.gameObject.name == "funButton") {	
@@ -77,7 +82,7 @@ public class buttons : MonoBehaviour {
 				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
 						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
-				StartCoroutine (time (5f));
+				StartCoroutine (time (2f));
 
 			}
 		}

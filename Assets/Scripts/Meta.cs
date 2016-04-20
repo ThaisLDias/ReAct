@@ -11,7 +11,8 @@ public class Meta : MonoBehaviour {
 		btScript = GameObject.Find ("BlackHole");
 		BlackHole blackScript = btScript.GetComponent<BlackHole>(); 
 		
+
 		goalText = gameObject.GetComponent<Text>();
-		goalText.text = (blackScript.meta + "%").ToString();
+		goalText.text = (blackScript.meta).ToString ("F0");
 	} 
 }
