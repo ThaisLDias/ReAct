@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 
 public class BlackHole : MonoBehaviour {
@@ -59,9 +60,6 @@ public class BlackHole : MonoBehaviour {
 		if (meta >= 100) {
 			Debug.Log("Ganhou miseravi");
 		}
-
-
-
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
@@ -69,8 +67,6 @@ public class BlackHole : MonoBehaviour {
 		barScript = GameObject.Find ("Slider");
 		stressBar declineScript = barScript.GetComponent<stressBar> (); 
 
-		objetive = GameObject.Find ("Text");
-		miniGoals objetivo = objetive.GetComponent<miniGoals> ();
 
 		if (col.gameObject.name == "studyButton") {
 			growing = true;
@@ -91,34 +87,59 @@ public class BlackHole : MonoBehaviour {
 		if (col.gameObject.name == "sleepButton")
 			declining = true;
 
-		for(int i = 0; i< objetivo.gs.Count;i++)
-		{
-			objetivo.lg = "";
-			if (col.gameObject.GetComponent<buttons> ().textGoal == objetivo.littleGoals [objetivo.gs [i]]) {
-				
-				
-					Debug.Log ("Entrou no if na tentativa nº: " + (i).ToString ());
 
-					objetivo.lg.Replace (objetivo.littleGoals [objetivo.gs [i]], "Done");
-					objetivo.littleGoals.Remove (objetivo.littleGoals [objetivo.gs [i]]);
-					objetivo.gs.Remove (objetivo.gs [i]);
-				 
-				} else
-					Debug.Log ("A tentativa nº " + (i).ToString () + " não entrou no if");
-			
-
-		}
 	}
 
 
 	void OnTriggerExit2D(Collider2D col) {
+
+		objetive = GameObject.Find ("Text");
+		miniGoals objetivo = objetive.GetComponent<miniGoals> ();
+
 		if (col.gameObject.name == "studyButton" || col.gameObject.name == "workButton") {
 			growing = false;
 			bS = false;
 			bW = false;
+
+			Debug.Log (objetivo.lg);
+			Debug.Log(objetivo.lg.Replace(col.gameObject.GetComponent<buttons> ().textGoal,""));
+			RefreshPaper (objetive,objetivo,col);
 		}
 		if (col.gameObject.name == "funButton" || col.gameObject.name == "sleepButton") {
 			declining = false;
+			Debug.Log (objetivo.lg);
+			Debug.Log(objetivo.lg.Replace(col.gameObject.GetComponent<buttons> ().textGoal,""));
+			GameObject.Find("Text").GetComponent<Text>().text = 
+									objetivo.lg.Replace(col.gameObject.GetComponent<buttons> ().textGoal, "");
+
+			RefreshPaper (objetive,objetivo,col);
+
 		}
+	}
+	void RefreshPaper(GameObject a , miniGoals b, Collider2D col)
+	{
+		
+
+
+		/*for(int i = 0; i< b.gs.Count;i++)
+		{
+			b.lg = "";
+			if (col.gameObject.GetComponent<buttons> ().textGoal == b.littleGoals [b.gs [i]]) {
+				
+				b.lg.Replace (b.littleGoals [b.gs [i]], "Done");
+				Debug.Log ("Deu replace para:" + b.lg);
+				b.littleGoals.Remove (b.littleGoals [b.gs [i]]);
+				b.gs.Remove (b.gs [i]);
+				for (int t = 0; t < b.gs.Count; t++) {
+					b.lg += b.littleGoals [b.gs [t]];
+				}
+
+				//Debug.Log(b.lg -= col.gameObject.GetComponent<buttons> ().textGoal);
+
+			} else
+				Debug.Log ("A tentativa nº " + (i).ToString () + " não entrou no if");
+*/
+
+	
 	}
 }

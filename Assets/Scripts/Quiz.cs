@@ -8,7 +8,7 @@ public class Quiz : MonoBehaviour {
 
 	public Text questions;
 	public List<string> quizQuestions = new List<string> ();
-	private bool add;
+	public bool add;
 	int click = 0;
 	private Vector3 spawnPosition;
 
@@ -17,6 +17,8 @@ public class Quiz : MonoBehaviour {
 	public GameObject ccheck;
 	public GameObject canvas;
 
+	public Button Yes;
+	public Button No;
 
 
 	void Start () {
@@ -29,23 +31,26 @@ public class Quiz : MonoBehaviour {
 
 
 	void Update() {
-
-	
 		questions.text = quizQuestions [click].ToString ();
+
 	}
 
 
 	public void changeQuestions() {
+
 		c = GameObject.Find ("Q1");
 		ButtonsCheck clickScript = c.GetComponent<ButtonsCheck>();
 
+
 		add = true;
 		click += 1;
-		if (gameObject != null) {
+
+		/*if (gameObject != null) {
 			Destroy (clickScript.check);
 		}
+
 		GameObject spawnCheck = Instantiate (ccheck, spawnPosition, Quaternion.identity) as GameObject;
-		spawnCheck.transform.SetParent (canvas.transform);
+		spawnCheck.transform.SetParent (canvas.transform,false);*/
 
 	}
 

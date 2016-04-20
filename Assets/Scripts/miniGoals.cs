@@ -26,29 +26,20 @@ public class miniGoals : MonoBehaviour {
 				i-= 1;
 
 			lg += littleGoals [gs [i]];
-
+			Debug.Log (this.gameObject.name);
 		}
-		Debug.Log (gs.Count);	
 	}
 
 
 	void Update() {
 		timeGoals = GameObject.Find ("time");
 		clockTime timeL = timeGoals.GetComponent<clockTime>();
-
+		miniG.text = lg.Replace("<br>", "\n");
 	}
 	 
 
 	public void OnGUI() {
-		if (lg == "") {
-			for (int i = 0; i < gs.Count; i++) {
-				lg += littleGoals [gs [i]];
-			}
-		}
-		if (gs.Count == 0) {
-			lg = "DONE!";
-		}
 
-		miniG.text = lg.Replace("<br>", "\n");
+
 	} 
 }

@@ -7,21 +7,23 @@ public class taskWindow : MonoBehaviour {
 	private bool setActive;
 
 	void Start () {
-		taskMenu.SetActive (false);
-		setActive = false;
+		//taskMenu.SetActive (false);
+		//setActive = false;
+		//taskMenu.GetComponent<Renderer>().
 	}
 
 	public void Appears () {
-			setActive = true;
+		/*		setActive = true;
 		if (setActive == true) {
 			taskMenu.SetActive (true);
-		} 
+		} /*/
 	}
 
 	public void Disappers()
 	{
+		/*
 		setActive = false;
 		taskMenu.SetActive (false);
-	}
+	*/}
 
 }

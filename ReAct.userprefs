@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BlackHole.cs">
     <Files>
-      <File FileName="Assets\Scripts\BlackHole.cs" Line="104" Column="23" />
-      <File FileName="Assets\Scripts\buttons.cs" Line="78" Column="5" />
-      <File FileName="Assets\Scripts\Events.cs" Line="17" Column="3" />
-      <File FileName="Assets\ButtonsCheck.cs" Line="20" Column="54" />
-      <File FileName="Assets\Quiz.cs" Line="42" Column="14" />
+      <File FileName="Assets\Scripts\buttons.cs" Line="60" Column="4" />
+      <File FileName="Assets\Scripts\BlackHole.cs" Line="116" Column="4" />
+      <File FileName="Assets\Scripts\miniGoals.cs" Line="35" Column="35" />
+      <File FileName="Assets\Scripts\taskWindow.cs" Line="22" Column="25" />
+      <File FileName="Assets\Scripts\clockTime.cs" Line="36" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

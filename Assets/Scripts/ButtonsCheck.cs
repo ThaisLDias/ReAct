@@ -7,6 +7,9 @@ public class ButtonsCheck : MonoBehaviour {
 
 	public GameObject check;
 
+
+
+
 	public List<int> optionOne = new List<int> ();
 	public List<int> optionTwo = new List<int> ();
 	public List<int> optionTree = new List<int> ();
@@ -14,6 +17,8 @@ public class ButtonsCheck : MonoBehaviour {
 	public Button b1;
 	public Button b2;
 	public Button b3;
+
+
 
 
 	public void Options(){
@@ -30,8 +35,12 @@ public class ButtonsCheck : MonoBehaviour {
 		if (b3) {
 			optionTree.Add (1);
 		}
-			
+
+
+
 	}
 
 
 }
+
+
