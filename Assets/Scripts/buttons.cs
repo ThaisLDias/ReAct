@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
 public class buttons : MonoBehaviour {
@@ -17,6 +16,7 @@ public class buttons : MonoBehaviour {
     public bool done;
 
 
+
 	void Start () {
 		Oldpos = this.transform.position;
 		isMoving = false;
@@ -26,8 +26,6 @@ public class buttons : MonoBehaviour {
 	void FixedUpdate()
 	{
 		h = FindObjectOfType<clockTime>().hours;
-
-
 	}
 
 	void OnMouseDrag() {
@@ -39,6 +37,10 @@ public class buttons : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colisor)
 	{
+		 
+
+
+
 		if (colisor.gameObject.tag == "blackHole") {
 			if (this.gameObject.name == "workButton") {
 				if (this.startTime <= h && this.endTime >= h) {

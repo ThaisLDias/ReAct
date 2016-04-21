@@ -18,13 +18,18 @@ public class ButtonsCheck : MonoBehaviour {
 	public Button b2;
 	public Button b3;
 
+	GameObject c;
+
 
 
 
 	public void Options(){
 		check.transform.position = this.transform.position;
 
-		if (b1) {
+		c = GameObject.Find ("Question");
+		Quiz yesVoid = c.GetComponent<Quiz>();
+
+		if (b1 && yesVoid.next == true) {
 			optionOne.Add (1);
 		}
 

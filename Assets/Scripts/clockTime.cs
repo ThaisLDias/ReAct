@@ -16,9 +16,10 @@ public class clockTime : MonoBehaviour {
 	void FixedUpdate() 
 		{
 		count++; 	
-		if (count == 5) {
+		if (count == 10) {
 			minutes++; 
 			count = 0;
+
 		} 
 
 		if (minutes == 60) {

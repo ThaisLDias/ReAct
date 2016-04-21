@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class popUp : MonoBehaviour {
 	
@@ -7,10 +8,14 @@ public class popUp : MonoBehaviour {
 	GameObject stressP;
 	private bool setActive;
 
+
+	 
+
 	void Start(){
 
 		panel.SetActive (false);
 		setActive = false;
+
 	}
 
 	void Update(){
@@ -18,10 +23,14 @@ public class popUp : MonoBehaviour {
 		stressP = GameObject.Find ("BlackHole");
 		BlackHole stressUpboo = stressP.GetComponent<BlackHole>(); 
 
+
+
 		if (setActive == true && stressUpboo.growing == true) {
 			panel.SetActive (true);
 			Debug.Log ("Teste");
 		}
+			 
+
 
 		OpenPanel ();
 	}
@@ -32,11 +41,15 @@ public class popUp : MonoBehaviour {
 
 		if (stressUp.Stress >= 20 && stressUp.Stress <= 21) {
 			setActive = true;
+			StartCoroutine (BalloonTime());
 		}
 
 	}
 
-	public void ClosePanel(){
+
+
+	IEnumerator BalloonTime() {
+		yield return new WaitForSeconds (5f);
 		panel.SetActive (false);
 		setActive = false;
 	}

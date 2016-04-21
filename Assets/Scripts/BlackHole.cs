@@ -14,8 +14,9 @@ public class BlackHole : MonoBehaviour {
 	public bool bD;
 	public bool bSp;
 
-	
-	
+
+	private Vector2 checkPosition;
+	private float radius;
 
 	public float Stress = 0;
 	
@@ -34,6 +35,9 @@ public class BlackHole : MonoBehaviour {
 		bS = false;
 		bD = false;
 		bSp = false;
+		checkPosition = new Vector2 (11,21);
+		radius = 500;
+		Music.ToggleMusic();
         
 	}
 
@@ -87,7 +91,10 @@ public class BlackHole : MonoBehaviour {
 		if (col.gameObject.name == "sleepButton")
 			declining = true;
 
-
+		if(col.gameObject.tag == "buttons") {
+			Debug.Log ("rrr");
+		}
+	
 	}
 
 

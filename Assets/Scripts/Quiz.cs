@@ -8,7 +8,6 @@ public class Quiz : MonoBehaviour {
 
 	public Text questions;
 	public List<string> quizQuestions = new List<string> ();
-	public bool add;
 	int click = 0;
 	private Vector3 spawnPosition;
 
@@ -17,16 +16,15 @@ public class Quiz : MonoBehaviour {
 	public GameObject ccheck;
 	public GameObject canvas;
 
-	public Button Yes;
-	public Button No;
 
+	public GameObject popQuestion;
+	public bool next;
 
 	void Start () {
-		string[] q = {"I have trouble sleeping", "I have trouble focusing on tasks"};
-		quizQuestions.AddRange (q);
-		add = false;
-
 		spawnPosition = new Vector3 (-236,271,0);
+		popQuestion.SetActive (false);
+		next = false;
+	
 	}
 
 
@@ -41,17 +39,25 @@ public class Quiz : MonoBehaviour {
 		c = GameObject.Find ("Q1");
 		ButtonsCheck clickScript = c.GetComponent<ButtonsCheck>();
 
-
-		add = true;
-		click += 1;
-
-		/*if (gameObject != null) {
+		popQuestion.SetActive (true);
+					
+		if (gameObject != null) {
 			Destroy (clickScript.check);
 		}
 
 		GameObject spawnCheck = Instantiate (ccheck, spawnPosition, Quaternion.identity) as GameObject;
-		spawnCheck.transform.SetParent (canvas.transform,false);*/
+		spawnCheck.transform.SetParent (canvas.transform,false);
 
+	}
+
+	public void yes(){
+		popQuestion.SetActive (false);
+		click += 1;
+		next = true;
+	}
+
+	public void no(){
+		popQuestion.SetActive (false);
 	}
 
 
