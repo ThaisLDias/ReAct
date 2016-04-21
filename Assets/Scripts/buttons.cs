@@ -9,11 +9,11 @@ public class buttons : MonoBehaviour {
 	private Vector2 Oldpos;  
 	private bool isMoving;
 	int h;
-    public string textGoal;
-    public int startTime;
-    public int endTime;
-    public bool started;
-    public bool done;
+	public string textGoal;
+	public int startTime;
+	public int endTime;
+	public bool started;
+	public bool done;
 
 
 
@@ -37,7 +37,7 @@ public class buttons : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D colisor)
 	{
-		 
+
 
 
 
@@ -49,7 +49,7 @@ public class buttons : MonoBehaviour {
 					this.started = true;
 					this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 						new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+							colisor.GetComponent<RectTransform> ().anchoredPosition.y);
 					StartCoroutine (time (5f));
 				} else {
 					this.started = false;
@@ -65,16 +65,16 @@ public class buttons : MonoBehaviour {
 				isMoving = true;
 				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-					colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
 				StartCoroutine (time (2f));
-			
+
 			}
 			if (this.gameObject.name == "studyButton") {
 				this.done = true;
 				isMoving = true;
 				this.gameObject.GetComponent<RectTransform> ().anchoredPosition = 
 					new Vector2 (colisor.GetComponent<RectTransform> ().anchoredPosition.x,
-					colisor.GetComponent<RectTransform> ().anchoredPosition.y);
+						colisor.GetComponent<RectTransform> ().anchoredPosition.y);
 				StartCoroutine (time (2f));
 
 			}
@@ -98,6 +98,6 @@ public class buttons : MonoBehaviour {
 	IEnumerator time(float t) {
 		yield return new WaitForSeconds(t);
 		this.transform.position = Vector2.Lerp(Oldpos, transform.position, Time.deltaTime);
-    }
+	}
 
 }

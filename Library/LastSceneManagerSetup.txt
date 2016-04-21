@@ -1,4 +1,4 @@
 sceneSetups:
-- path: "Assets/Scenes/Instru\xE7\xF5es.unity"
+- path: Assets/Scenes/Level1.unity
   isLoaded: 1
   isActive: 1
