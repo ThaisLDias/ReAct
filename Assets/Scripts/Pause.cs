@@ -25,10 +25,9 @@ public class Pause : MonoBehaviour {
 		audioPause.Play ();
 		if (Time.timeScale == 1)
 		{
-			Time.timeScale = 0;
+			StopAll ();
 			setActive = true;
-			p.Stop ();
-			Debug.Log ("Pausado");
+			p.Stop ("Pause");
 		}
 		else
 		{
@@ -41,15 +40,20 @@ public class Pause : MonoBehaviour {
 			Menu.SetActive (true);
 		} else {
 			Menu.SetActive (false);
-		
+
 		}
-	
+
 	}
 
 
 	public void GoMenu(){
 		SceneManager.LoadScene ("Menu");
-			Time.timeScale = 1;
+		Time.timeScale = 1;
+
+	}
+
+	public void StopAll(){
+		Time.timeScale = 0;
 
 	}
 

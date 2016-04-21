@@ -49,23 +49,23 @@ public class AudioGame : MonoBehaviour {
 		if (a != b) {
 			switch (a) {
 			case 1: 
-				Stop ();
+				Stop ("Stop");
 				audioSource1.Play ();
 				break;
 			case 2: 
-				Stop ();
+				Stop ("Stop");
 				audioSource2.Play ();
 				break;
 			case 3:
-				Stop ();
+				Stop ("Stop");
 				audioSource3.Play ();
 				break;
 			case 4: 
-				Stop ();
+				Stop ("Stop");
 				audioSource4.Play ();
 				break;
 			case 5: 
-				Stop ();
+				Stop ("Stop");
 				audioSource5.Play ();
 				break;
 			}
@@ -74,13 +74,18 @@ public class AudioGame : MonoBehaviour {
 		b = a;
 	}
 
-	public void Stop(){
+	public void Stop(string c){
 		for (int i = 0; i < audios.Count; i++) {
-			audios [i].GetComponent<AudioSource> ().Stop ();
+			if (c == "Pause")
+				audios [i].GetComponent<AudioSource> ().Pause();
+			if(c == "Stop")
+				audios [i].GetComponent<AudioSource> ().Stop ();
+
 		}
 	}
 
 
 
+
+
 }
-			 
