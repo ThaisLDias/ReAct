@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\AnimScript.cs" />
+     <Compile Include="Assets\Scripts\AnimScript.cs" />
      <Compile Include="Assets\Scripts\AudioGame.cs" />
      <Compile Include="Assets\Scripts\BlackHole.cs" />
      <Compile Include="Assets\Scripts\ButtonsCheck.cs" />

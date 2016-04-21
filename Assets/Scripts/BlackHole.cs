@@ -26,6 +26,9 @@ public class BlackHole : MonoBehaviour {
 	public int h;
 	public string list;
 
+	public AudioSource En;
+	public AudioSource Ou;
+
 	void Start () 
 	{
 		growing = false;	
@@ -80,22 +83,26 @@ public class BlackHole : MonoBehaviour {
 			growing = true;
 			declineScript.Decline ();
 			bS = true;
+			En.Play ();
 		}
 		if (col.gameObject.name == "workButton") {
 			if (col.GetComponent<buttons> ().started == true) {
 				growing = true;
 				declineScript.Decline ();
 				bW = true;
+				En.Play ();
 			}		
 		}
 
 		if (col.gameObject.name == "funButton") {
 			declining = true;
 			bD = true;
+			En.Play ();
 		}
 		if (col.gameObject.name == "sleepButton") {
 			declining = true;
 			bSp = true;
+			En.Play ();
 		}
 
 	}
@@ -111,11 +118,13 @@ public class BlackHole : MonoBehaviour {
 			growing = false;
 			bS = false;
 			bW = false;
+			Ou.Play ();
 		}
 		if (col.gameObject.name == "funButton" || col.gameObject.name == "sleepButton") {
 			declining = false;
 			bD = false;
 			bSp = false;
+			Ou.Play ();
 		}
 	}
 
