@@ -27,12 +27,16 @@ public class Quiz : MonoBehaviour {
 	GameObject btnCheck;
 	Color b; 
 
+	public int questionPass;
+
+
 
 	void Start () {
 		spawnPosition = new Vector3 (-236,271,0);
 		popQuestion.SetActive (false);
 		next = false;
 		btnCheck = GameObject.Find ("Options");
+		questionPass = 1;
 
 	}
 
@@ -57,12 +61,15 @@ public class Quiz : MonoBehaviour {
 		switch (btnCheck.GetComponent<ButtonsCheck> ().bt) {
 		case "Q1":
 			btnCheck.GetComponent<ButtonsCheck> ().sum += 4;
+			questionPass += 1;
 				break;
 		case "Q2":
 			btnCheck.GetComponent<ButtonsCheck> ().sum += 2;
+			questionPass += 1;
 				break;
 		case "Q3":
 			btnCheck.GetComponent<ButtonsCheck> ().sum += 0;
+			questionPass += 1;
 				break;
 		}
 
@@ -77,11 +84,11 @@ public class Quiz : MonoBehaviour {
 			if (btnCheck.GetComponent<ButtonsCheck> ().sum >= 0 && btnCheck.GetComponent<ButtonsCheck> ().sum <= 4) {
 				SceneManager.LoadScene ("Option4");
 			}
-			if (btnCheck.GetComponent<ButtonsCheck> ().sum < 4
+			if (btnCheck.GetComponent<ButtonsCheck> ().sum > 4
 				&&  btnCheck.GetComponent<ButtonsCheck> ().sum <= 7 ) {
 				SceneManager.LoadScene ("Option1");
 			}
-			if (btnCheck.GetComponent<ButtonsCheck> ().sum < 8
+			if (btnCheck.GetComponent<ButtonsCheck> ().sum > 8
 				&&  btnCheck.GetComponent<ButtonsCheck> ().sum <= 11 ) {
 				SceneManager.LoadScene ("Option3");
 			}

@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PassQuestions.cs" />
      <Compile Include="Assets\Scripts\AnimScript.cs" />
      <Compile Include="Assets\Scripts\AudioGame.cs" />
      <Compile Include="Assets\Scripts\Black.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Scripts\miniGoals.cs" />
      <Compile Include="Assets\Scripts\popUp.cs" />
      <Compile Include="Assets\Scripts\stressBar.cs" />
+     <Compile Include="Assets\Scripts\stressString.cs" />
      <Compile Include="Assets\Scripts\taskWindow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

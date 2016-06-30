@@ -11,6 +11,7 @@ public class ButtonsCheck : MonoBehaviour {
 	public int sum;
 
 	public string bt; 
+	public AudioSource audioCheck;
 
 
 
@@ -20,6 +21,8 @@ public class ButtonsCheck : MonoBehaviour {
 		Quiz yesVoid = c.GetComponent<Quiz>();
 
 
+		audioCheck.Play ();
+		bt = a;
 		Destroy (GameObject.Find ("CheckImage(Clone)"));
 
 		GameObject ch = Instantiate (check,GameObject.Find(a).transform.position,Quaternion.identity) as GameObject;

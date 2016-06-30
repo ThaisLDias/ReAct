@@ -213,6 +213,8 @@ public class BlackHole : MonoBehaviour {
 		}
 	}
 
+
+
 	IEnumerator time(float t) {
 		yield return new WaitForSeconds(t);
 		SceneManager.LoadScene ("Black");
